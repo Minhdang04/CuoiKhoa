@@ -43,7 +43,7 @@ function Pin() {
 
                         <div className="pint-mock-icon-container">
                             <img src="./images/threedots.png" alt="edit" className="pint-mock-icon"/>
-                         </div>
+                        </div>
                     </div>
                 </div>
 
