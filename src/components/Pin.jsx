@@ -50,10 +50,10 @@ function Pin(props) {
 
                 <div className="modal_foot">
                     <div className="destination">
-                        <div className="pint_mock_icon_container">
-                            <img src="./images/upper-right-arrow.png" alt="destination" className="pint_mock_icon" />
-                        </div>
-                        <span>{props.pinDetails.destination}</span>
+                            <div className="pint_mock_icon_container">
+                                <a href={props.pinDetails.destination}><img src="./images/upper-right-arrow.png" alt="destination" className="pint_mock_icon" /></a>
+                            </div>
+                            <span>{props.pinDetails.destination}</span>
                     </div>
 
                     <div className="pint_mock_icon_container">
