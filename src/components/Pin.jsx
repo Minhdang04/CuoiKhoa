@@ -1,57 +1,76 @@
 import React, { useState } from 'react';
+
 import '../styles/pin.css';
 
-function upload_img(event, setPinImage) {
-    if (event.target.files && event.target.files[0]) {
-        if (/image\/*/.test(event.target.files[0].type)) {
-            const reader = new FileReader();
+// function upload_img(event, setPinImage) {
+//     if (event.target.files && event.target.files[0]) {
+//         if (/image\/*/.test(event.target.files[0].type)) {
+//             const reader = new FileReader();
 
-            reader.onload = function() {
-                setPinImage(reader.result);
-            }
+//             reader.onload = function() {
+//                 setPinImage(reader.result);
+//             }
 
-            reader.readAsDataURL(event.target.files[0]);
-        }
+//             reader.readAsDataURL(event.target.files[0]);
+//         }
+//     }
+// }
+
+function check_size(event) {
+    const image = event.target;
+
+    image.classList.add('pin_max_width');
+
+    if (
+        image.getBoundingClientRect().width < image.parentElement.getBoundingClientRect().width ||
+        image.getBoundingClientRect().height < image.parentElement.getBoundingClientRect().height
+    ) {
+        image.classList.remove('pin_max_width');
+        image.classList.add('pin_max_height');
     }
+
+    image.style.opacity = 1;
 }
 
-function Pin() {
-    const [pin_img, setPinImage] = useState();
+function Pin(props) {
+    // const [pinImage, setPinImage] = useState();
 
     return (
-        <div>
-            <input onChange={event => upload_img(event, setPinImage)} type="file" name="picture" id="picture" value=""/>
+        // <div>
+        //     <input onChange={event => upload_img(event, setPinImage)} type="file" name="picture" id="picture" value="" />
 
-            <div className="card">
-                <div className="pinTitle"></div>
+        //     <div className="card">
+        <div className={`card card_${props.pinDetails.pin_size}`}>
+            <div className="pin_title">{props.pinDetails.title}</div>
 
-                <div className="pinModel">
-                    <div className="modelHead">
-                        <div className="saveCard">Save</div>
-                    </div>
-                    <div className="modelFoot">
-                        <div className="destination">
-                            <div className="pint-mock-icon-container">
-                                <img src="./images/upper-right-arrow.png" alt="destination" className="pint-mock-icon"/>
-                            </div>
-                            <span>Eatery</span>
-                        </div>
-
-                        <div className="pint-mock-icon-container">
-                            <img src="./images/upload.png" alt="upload" className="pint-mock-icon"/>
-                        </div>
-
-                        <div className="pint-mock-icon-container">
-                            <img src="./images/threedots.png" alt="edit" className="pint-mock-icon"/>
-                        </div>
-                    </div>
+            <div className="pin_modal">
+                <div className="modal_head">
+                    <div className="save_card">Save</div>
                 </div>
 
-                <div className="pinImages">
-                    <img src={pin_img} alt="pinImages"/>
+                <div className="modal_foot">
+                    <div className="destination">
+                        <div className="pint_mock_icon_container">
+                            <img src="./images/upper-right-arrow.png" alt="destination" className="pint_mock_icon" />
+                        </div>
+                        <span>{props.pinDetails.destination}</span>
+                    </div>
+
+                    <div className="pint_mock_icon_container">
+                        <img src="./images/upload.png" alt="send" className="pint_mock_icon" />
+                    </div>
+
+                    <div className="pint_mock_icon_container">
+                        <img src="./images/threedots.png" alt="edit" className="pint_mock_icon" />
+                    </div>
                 </div>
             </div>
+
+            <div className="pin_image">
+                <img onLoad={check_size} src={props.pinDetails.img_blob} alt="pin_image" />
+            </div>
         </div>
+        // </div>
     )
 }
 

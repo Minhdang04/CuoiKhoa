@@ -6,6 +6,8 @@ import MVP from './components/MVP.jsx'
 function App() {
   return (
     <MVP></MVP>
+    // <Model></Model>
+    // <Pin></Pin>
   );
 }
 

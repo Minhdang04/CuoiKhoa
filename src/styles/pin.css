@@ -1,37 +1,27 @@
-.card {
-    width: 252px;
-    height: 512px;
-    border-radius: 16px;
-    position: relative;
-    overflow: hidden;
-
-    background-color: green;
-}
-
-.pinTitle {
+.pin_title {
     width: 0;
     height: 0;
     opacity: 0;
 }
 
-.pinModel {
+.pin_modal {
     width: 100%;
     height: 100%;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
 
     opacity: 0;
-    background-color: rgba (0,0,0,0.1);
+    background-color: rgba(0, 0, 0, 0.1);
     transition-duration: 0.3s;
 }
 
-.pinModel:hover {
+.pin_modal:hover {
     opacity: 1;
 }
 
-.pinModel .modelHead {
+.pin_modal .modal_head {
     width: 100%;
     height: 15%;
     position: fixed;
@@ -42,7 +32,7 @@
     align-items: center;
 }
 
-.pinModel .modelFoot {
+.pin_modal .modal_foot {
     width: 100%;
     height: 15%;
     position: fixed;
@@ -53,7 +43,7 @@
     align-items: center;
 }
 
-.pint-mock-icon-container {
+.pint_mock_icon_container {
     width: 32px;
     height: 32px;
     border-radius: 50%;
@@ -63,15 +53,15 @@
     align-items: center;
     flex-shrink: 0;
 
-    background-color: #f0f0f0;
+    background-color: #F0F0F0;
     cursor: pointer;
 }
 
-.pint-mock-icon {
+.pint_mock_icon {
     width: 50%;
 }
 
-.pinModel .modelHead .saveCard {
+.pin_modal .modal_head .save_card {
     margin-right: 20px;
     width: 53px;
     height: 40px;
@@ -85,11 +75,11 @@
     font-weight: 700;
 
     color: white;
-    background-color: red;
+    background-color: #E60023;
     cursor: pointer;
 }
 
-.pinModel .modelFoot .destination {
+.pin_modal .modal_foot .destination {
     width: 132px;
     height: 32px;
     border-radius: 18px;
@@ -100,23 +90,32 @@
     font-size: 16px;
     font-weight: 700;
 
-    background-color: #f0f0f0;
+    background-color: #F0F0F0;
     cursor: pointer;
 }
 
-.pinModel .modelFoot .destination span{
+.pin_modal .modal_foot .destination span {
     overflow: hidden;
+    white-space: nowrap;
 }
 
-.pinImages {
+.pin_image {
     width: 100%;
     height: 100%;
 
     display: flex;
-    justify-self: center;
+    justify-content: center;
     align-items: center;
 }
 
-.pinImages img {
-    height: 100%;
+.pin_image img {
+    opacity: 0;
+}
+
+.pin_max_width {
+    max-width: 100%;
+}
+
+.pin_max_height {
+    max-height: 100%;
 }
